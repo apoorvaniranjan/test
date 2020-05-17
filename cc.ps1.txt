@@ -1,0 +1,26 @@
+#Get 'n' number of files
+
+
+#Destination for files
+$DropDirectory = "C:\Program Files\LogRhythm\LogRhythm System Monitor\state\processedlogs\"
+
+$PickupDirectory = Get-ChildItem -Path "D:\old\"
+
+
+
+
+foreach ($file in $PickupDirectory)
+{
+   
+        $Destination = $DropDirectory+$file.Name
+
+        Write-Host $file.FullName
+        
+        Move-Item $file.FullName -destination $Destination
+Start-Sleep 2 
+    
+}
+
+
+
+Exit
